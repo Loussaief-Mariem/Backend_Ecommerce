@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 // permet utiliser le process.env.PORT
 const dotenv = require("dotenv");
 const cors = require("cors");
-
+const path = require("path");
 dotenv.config();
 // partei de l'IA
 const { ChatGoogleGenerativeAI } = require("@langchain/google-genai");
@@ -162,6 +162,11 @@ app.post("/api/chat", async (req, res) => {
     console.error("Erreur Gemini :", err);
     res.status(500).json({ error: "Erreur du chatbot" });
   }
+});
+//dist reactjs
+app.use(express.static(path.join(__dirname, "./client/build"))); // Route pour les pages non trouvées, redirige vers index.html
+app.get("/{*any}", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 const PORT = process.env.PORT || 3000;
 // console.log : afficheir un message sur le console
