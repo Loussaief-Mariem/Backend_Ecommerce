@@ -88,16 +88,16 @@ const app = express();
 // pour comprendre le req.body
 app.use(express.json());
 app.use(cors());
-app.get("/", (req, res) => {
-  res.send("Hello world ! ");
-});
-app.get("/contact", (req, res) => {
-  res.send("page de contact ");
-});
-// send : afffiche un message page web a user
-app.get("/help", (req, res) => {
-  res.send("page d'aide ");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello world ! ");
+// });
+// app.get("/contact", (req, res) => {
+//   res.send("page de contact ");
+// });
+// // send : afffiche un message page web a user
+// app.get("/help", (req, res) => {
+//   res.send("page d'aide ");
+// });
 /*Connexion à la base données cloud atles
 mongoose
   .connect(process.env.DATABASECLOUD)
