@@ -130,6 +130,9 @@ app.use("/api/scategories", scategorieRouter);
 app.use("/api/articles", articleRouter);
 const paymentRouter = require("./routes/payment.route");
 app.use("/api/payment", paymentRouter);
+// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+const userRouter = require("./routes/user.route");
+app.use("/api/users", userRouter);
 // Endpoint principal
 app.post("/api/chatbot", async (req, res) => {
   const { question } = req.body;
